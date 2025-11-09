@@ -3,6 +3,26 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="alien" class="org.example.Alien">
+<!--    <bean id="alien" class="org.example.Alien" scope="prototype">-->
+<!--    </bean>-->
+
+    <bean id="alien" class="org.example.Alien" autowire="byType">
+        <!-- Setter injection -->
+        <property name="age" value="10"/>
+        <!-- Setter Injection with reference attribute -->
+<!--        <property name="lap" ref="lap1"/>-->
+        <!-- Constructor Injection -->
+<!--        <constructor-arg index="1" ref="lap1"/>-->
+<!--        <constructor-arg index="0" value="55"/>-->
+    </bean>
+
+<!--    <bean id="lap1" class="org.example.Laptop">-->
+<!--    </bean>-->
+
+<!--  Primary Bean - This is used when there are multiple beans of same type   -->
+    <bean id="comp1" class="org.example.Laptop" primary="true">
+    </bean>
+
+    <bean id="comp2" class="org.example.Laptop">
     </bean>
 </beans>
